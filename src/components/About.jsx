@@ -1,78 +1,213 @@
-import React from 'react'
-import { Code, Smartphone, Server } from "lucide-react"
+"use client"
 
-const About = () => {
-    return (
-        <section id="about" className="py-20 px-6">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
-                {/* Services Timeline */}
-                <div className="space-y-8">
-                    <div className="space-y-8 pl-6 border-l-2 border-orange-500">
-                        <div className="flex items-center gap-4 -ml-8">
-                            <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <Code className="w-6 h-6 text-slate-400" />
-                            <span className="text-xl font-semibold text-white">Website Development</span>
-                        </div>
+import { Code, Database, Globe, Server, Palette } from "lucide-react"
+import { motion } from "framer-motion"
 
-                        <div className="flex items-center gap-4 -ml-8">
-                            <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <Smartphone className="w-6 h-6 text-slate-400" />
-                            <span className="text-xl font-semibold text-white">App Development</span>
-                        </div>
+export default function About() {
+  const stats = [
+    { number: "50+", label: "Completed Projects" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "3+", label: "Years Experience" },
+  ]
 
-                        <div className="flex items-center gap-4 -ml-8">
-                            <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
-                            <Server className="w-6 h-6 text-slate-400" />
-                            <span className="text-xl font-semibold text-white">Website Hosting</span>
-                        </div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  }
+
+  const currentlyUsing = {
+    Languages: ["JavaScript", "TypeScript", "PHP", "HTML", "CSS"],
+    Frameworks: ["React", "Vue", "Angular", "Next.js"],
+    Backend: ["Node.js", "Express", "Laravel", "MySQL"],
+    Tools: ["Git", "GitHub", "VS Code", "Figma"],
+  }
+
+  const familiarWith = [
+    { name: "Firebase", icon: Database },
+    { name: "Redux", icon: Code },
+    { name: "Docker", icon: Server },
+    { name: "MongoDB", icon: Database },
+    { name: "Tailwind", icon: Palette },
+    { name: "Bootstrap", icon: Palette },
+    { name: "GraphQL", icon: Code },
+    { name: "AWS", icon: Globe },
+    { name: "Sass", icon: Palette },
+    { name: "Webpack", icon: Code },
+    { name: "Jest", icon: Code },
+    { name: "Postman", icon: Globe },
+  ]
+
+  return (
+    <section id="about" className="py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            About <span className="text-orange-500">Me</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+              I started my development journey with a passion for creating digital solutions that make a difference.
+              Through continuous learning and hands-on experience, I've developed expertise in modern web technologies.
+            </p>
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              I specialize in building responsive web applications, focusing on clean code, user experience, and
+              performance optimization. I love turning complex problems into simple, beautiful designs.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="bg-slate-800 p-4 sm:p-6 rounded-lg"
+                variants={itemVariants}
+                whileHover={{ y: -2, opacity: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-500 mb-2">{stat.number}</div>
+                <div className="text-gray-400 text-xs sm:text-sm">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-12">Skills</h3>
+
+          {/* Currently Using Section */}
+          <div className="mb-16">
+            <motion.h4
+              className="text-lg sm:text-xl font-semibold text-orange-500 mb-8 text-center"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              Currently Using
+            </motion.h4>
+
+            <motion.div
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {Object.entries(currentlyUsing).map(([category, skills], index) => (
+                <motion.div
+                  key={category}
+                  className="bg-slate-800/50 rounded-lg p-4 sm:p-6 border border-slate-700"
+                  variants={itemVariants}
+                  whileHover={{ y: -2, opacity: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                >
+                  <h5 className="font-semibold text-white mb-4 text-sm sm:text-base">{category}</h5>
+                  <ul className="space-y-2">
+                    {skills.map((skill, skillIndex) => (
+                      <motion.li
+                        key={skill}
+                        className="text-gray-300 text-sm"
+                        initial={{ opacity: 0, x: -5 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.02 + skillIndex * 0.01, ease: "easeOut" }}
+                        viewport={{ once: true, margin: "-50px" }}
+                      >
+                        {skill}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Familiar With Section */}
+          <div>
+            <motion.h4
+              className="text-lg sm:text-xl font-semibold text-orange-500 mb-8 text-center"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              Familiar With
+            </motion.h4>
+
+            <motion.div
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {familiarWith.map((tech, index) => {
+                const IconComponent = tech.icon
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col items-center group relative"
+                    variants={itemVariants}
+                    whileHover={{ y: -3, opacity: 0.9 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  >
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-slate-800 rounded-lg flex items-center justify-center mb-2 group-hover:bg-orange-500 group-hover:shadow-md group-hover:shadow-orange-500/20 transition-all duration-200">
+                      <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-gray-300 group-hover:text-white transition-colors" />
                     </div>
-                </div>
+                    <span className="text-xs sm:text-sm text-gray-400 text-center group-hover:text-orange-400 transition-colors">
+                      {tech.name}
+                    </span>
 
-                {/* About Me */}
-                <div className="space-y-8">
-                    <h2 className="text-4xl font-bold text-white">About me</h2>
-                    <p className="text-slate-300 leading-relaxed">
-                        I started my software journey from photography. Through that, I learned to love the process of creating from
-                        scratch. Since then, this has led me to software development as it fulfills my love for learning and
-                        building things.
-                    </p>
-
-                    <div className="grid grid-cols-3 gap-8">
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-orange-500">
-                                120 <span className="text-orange-400">+</span>
-                            </div>
-                            <div className="text-sm text-slate-400">
-                                Completed
-                                <br />
-                                Projects
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-orange-500">
-                                95 <span className="text-orange-400">%</span>
-                            </div>
-                            <div className="text-sm text-slate-400">
-                                Client
-                                <br />
-                                satisfaction
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl font-bold text-orange-500">
-                                10 <span className="text-orange-400">+</span>
-                            </div>
-                            <div className="text-sm text-slate-400">
-                                Years of
-                                <br />
-                                experience
-                            </div>
-                        </div>
+                    {/* Tooltip for larger screens */}
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden sm:block whitespace-nowrap">
+                      {tech.name}
                     </div>
-                </div>
-            </div>
-        </section>
-    )
+                  </motion.div>
+                )
+              })}
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
 }
-
-export default About
