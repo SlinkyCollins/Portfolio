@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import pfp from "@/assets/pfp2.jpg"
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -46,7 +47,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
-              I create modern web applications with clean code and beautiful user experiences. Passionate about turning
+              I create modern, fast web applications with clean code and beautiful user experiences. Passionate about turning
               ideas into digital reality.
             </motion.p>
 
@@ -62,8 +63,8 @@ export default function Hero() {
                 View Projects
               </motion.button>
               <motion.a
-                href="/resume.pdf"
-                download="resume.pdf"
+                href="/Resume.pdf"
+                download="Resume.pdf"
                 className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base flex items-center justify-center cursor-pointer"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -91,7 +92,7 @@ export default function Hero() {
                 <div className="w-full h-full rounded-full bg-slate-900 p-1">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <img
-                      src="/src/assets/pfp2.jpg"
+                      src={pfp}
                       alt="Collins Afolabi - Full Stack Developer"
                       width={400}
                       height={400}

@@ -96,7 +96,7 @@ export default function Navbar() {
               whileHover={{ opacity: 0.8 }}
               transition={{ duration: 0.2 }}
             >
-              Collynx
+              Afolabi Collins
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -183,7 +183,7 @@ export default function Navbar() {
 
               {/* Optional: Add social links or additional info */}
               <motion.div className="mt-12 text-center" variants={linkVariants}>
-                <p className="text-gray-400 text-sm">Let's build something amazing together</p>
+                <p className="text-gray-400 text-sm">Let's build something amazing together😎</p>
               </motion.div>
             </motion.div>
 

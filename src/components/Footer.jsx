@@ -5,10 +5,10 @@ import { motion } from "framer-motion"
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:collynx@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/SlinkyCollins", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/afolabi-ademola-851842280/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/heiscollins", label: "Twitter" },
+    { icon: Mail, href: "mailto:afolabiademola27@gmail.com", label: "Email" },
   ]
 
   return (

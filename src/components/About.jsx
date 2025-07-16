@@ -1,6 +1,17 @@
 "use client"
-
-import { Code, Database, Globe, Server, Palette } from "lucide-react"
+import pfp from "@/assets/pfp4.jpg"
+import { IoLogoFirebase } from "react-icons/io5";
+import { SiRedux } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
+import { BiLogoMongodb } from "react-icons/bi";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaBootstrap } from "react-icons/fa";
+import { GrGraphQl } from "react-icons/gr";
+import { FaAws } from "react-icons/fa";
+import { FaSass } from "react-icons/fa";
+import { SiWebpack } from "react-icons/si";
+import { SiJest } from "react-icons/si";
+import { SiPostman } from "react-icons/si";
 import { motion } from "framer-motion"
 
 export default function About() {
@@ -38,18 +49,18 @@ export default function About() {
   }
 
   const familiarWith = [
-    { name: "Firebase", icon: Database },
-    { name: "Redux", icon: Code },
-    { name: "Docker", icon: Server },
-    { name: "MongoDB", icon: Database },
-    { name: "Tailwind", icon: Palette },
-    { name: "Bootstrap", icon: Palette },
-    { name: "GraphQL", icon: Code },
-    { name: "AWS", icon: Globe },
-    { name: "Sass", icon: Palette },
-    { name: "Webpack", icon: Code },
-    { name: "Jest", icon: Code },
-    { name: "Postman", icon: Globe },
+    { name: "Firebase", icon: IoLogoFirebase },
+    { name: "Redux", icon: SiRedux },
+    { name: "Docker", icon: FaDocker },
+    { name: "MongoDB", icon: BiLogoMongodb },
+    { name: "Tailwind", icon: RiTailwindCssFill },
+    { name: "Bootstrap", icon: FaBootstrap },
+    { name: "GraphQL", icon: GrGraphQl },
+    { name: "AWS", icon: FaAws },
+    { name: "Sass", icon: FaSass },
+    { name: "Webpack", icon: SiWebpack },
+    { name: "Jest", icon: SiJest },
+    { name: "Postman", icon: SiPostman },
   ]
 
   return (
@@ -68,6 +79,14 @@ export default function About() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <img src={pfp} alt="aboutCollins" width="250" height="250" className="rounded object-cover mx-auto"/>
+          </motion.div> */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,11 +95,11 @@ export default function About() {
           >
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
               I started my development journey with a passion for creating digital solutions that make a difference.
-              Through continuous learning and hands-on experience, I've developed expertise in modern web technologies.
+              Through continuous learning and hands-on experience, I've developed expertise in cutting edge technologies such as NodeJS, React, Angular and Laravel.
             </p>
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
               I specialize in building responsive web applications, focusing on clean code, user experience, and
-              performance optimization. I love turning complex problems into simple, beautiful designs.
+              performance optimization. I deliver web solutions that are both innovative and robust.
             </p>
           </motion.div>
 
