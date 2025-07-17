@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import pfp from "@/assets/pfp2.jpg"
+import { Typewriter } from "react-simple-typewriter"
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -12,7 +13,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-18">
       <div className="max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 items-center">
           {/* === Text Section === */}
@@ -28,8 +29,17 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
-              Hi, I'm <span className="text-orange-500">Collins</span>
-              <span className="text-orange-500">.</span>
+              Hi, I'm <span className="text-orange-500">
+                <Typewriter
+                  words={["Collins.", "a Software Engineer.", "a Web Wizard."]}
+                  loop={true}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={2000}
+                />
+              </span>
             </motion.h1>
 
             <motion.p
@@ -85,7 +95,7 @@ export default function Hero() {
           >
             <div className="relative">
               <motion.div
-                className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-orange-500 to-red-500 p-1"
+                className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-orange-500 to-red-500 p-1 hover:transform hover:scale-105"
                 whileHover={{ opacity: 0.95 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >

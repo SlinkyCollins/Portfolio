@@ -1,13 +1,15 @@
 "use client"
 
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { motion } from "framer-motion"
+import { BsTwitterX, BsWhatsapp } from "react-icons/bs"
 
 export default function Footer() {
   const socialLinks = [
     { icon: Github, href: "https://github.com/SlinkyCollins", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/afolabi-ademola-851842280/", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/heiscollins", label: "Twitter" },
+    { icon: BsTwitterX, href: "https://x.com/collynxcodes", label: "Twitter" },
+    { icon: BsWhatsapp, href: "https://wa.me/+2349037613598", label: "Whatsapp" },
     { icon: Mail, href: "mailto:afolabiademola27@gmail.com", label: "Email" },
   ]
 
