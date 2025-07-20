@@ -9,7 +9,7 @@ export default function Projects() {
       title: "JobNet",
       description:
         "A job portal for tech roles where users can search, apply, and manage jobs, while admins handle postings and applications via their respective dashboards.",
-      tech: ["Angular", "PHP", "MySQL"],
+      tech: ["Angular", "PHP", "MySQL", "Bootstrap"],
       codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
       liveUrl: "https://jobnet.vercel.app/",
       image: "/images/projects/jobnet.png",
@@ -18,7 +18,7 @@ export default function Projects() {
       title: "Printivo Clone",
       description:
         "A front-end clone of the Printivo ecommerce platform, built to mirror UI/UX patterns with responsive design and product browsing.",
-      tech: ["React", "Vite"],
+      tech: ["React", "Vite", "CSS"],
       codeUrl: "https://github.com/SlinkyCollins/Printivo-Clone",
       liveUrl: "https://printivo-clone-omega.vercel.app/",
       image: "/images/projects/printivo.png",
@@ -36,7 +36,7 @@ export default function Projects() {
       title: "Perform-MD",
       description:
         "A medical web app for a pain management clinic with appointment scheduling and patient booking flow. Built with modern fullstack tools.",
-      tech: ["Next.js", "Tailwind", "GraphQL", "Node.js"],
+      tech: ["Nextjs", "Tailwind CSS", "GraphQL", "Node.js"],
       codeUrl: "https://github.com/SlinkyCollins/Perform-Md",
       liveUrl: "https://performmd.vercel.app/schedule",
       image: "/images/projects/performmd.png",
@@ -45,7 +45,7 @@ export default function Projects() {
       title: "Portfolio Website",
       description:
         "A sleek and animated portfolio site to showcase my skills and projects, built with motion effects and clean responsive design.",
-      tech: ["React", "Framer Motion", "TailwindCSS"],
+      tech: ["React", "Framer Motion", "Tailwind CSS"],
       codeUrl: "https://github.com/SlinkyCollins/Portfolio",
       liveUrl: "https://collynx.vercel.app/",
       image: "/images/projects/portfolio.png",

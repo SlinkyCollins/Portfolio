@@ -73,8 +73,8 @@ export default function Hero() {
                 View Projects
               </motion.button>
               <motion.a
-                href="/Resume.pdf"
-                download="Resume.pdf"
+                href="/AfolabiCollinsResume.pdf"
+                download="AfolabiCollinsResume.pdf"
                 className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base flex items-center justify-center cursor-pointer"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
