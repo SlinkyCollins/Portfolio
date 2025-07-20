@@ -6,48 +6,58 @@ import { motion } from "framer-motion"
 export default function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "JobNet",
       description:
-        "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      codeUrl: "#",
-      liveUrl: "#",
+        "A job portal for tech roles where users can search, apply, and manage jobs, while admins handle postings and applications via their respective dashboards.",
+      tech: ["Angular", "PHP", "MySQL"],
+      codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
+      liveUrl: "https://jobnet.vercel.app/",
+      image: "/images/projects/jobnet.png",
     },
     {
-      title: "Task Management App",
+      title: "Printivo Clone",
       description:
-        "A collaborative task management application with real-time updates and team collaboration features.",
-      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      codeUrl: "#",
-      liveUrl: "#",
+        "A front-end clone of the Printivo ecommerce platform, built to mirror UI/UX patterns with responsive design and product browsing.",
+      tech: ["React", "Vite"],
+      codeUrl: "https://github.com/SlinkyCollins/Printivo-Clone",
+      liveUrl: "https://printivo-clone-omega.vercel.app/",
+      image: "/images/projects/printivo.png",
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather application with location-based forecasts and interactive charts.",
-      tech: ["React", "Chart.js", "Weather API", "Tailwind"],
-      codeUrl: "#",
-      liveUrl: "#",
+      title: "Bank Web App",
+      description:
+        "A digital banking app with user authentication, transaction history, and balance tracking. Built with MERN stack and secure REST APIs.",
+      tech: ["React", "Express", "Node.js", "MongoDB"],
+      codeUrl: "https://github.com/SlinkyCollins/Bank-App",
+      liveUrl: "https://nairanest.vercel.app/",
+      image: "/images/projects/bank.png",
     },
     {
-      title: "Social Media App",
-      description: "A social networking platform with real-time messaging, posts, and user profiles.",
-      tech: ["React Native", "Firebase", "Redux", "Socket.io"],
-      codeUrl: "#",
-      liveUrl: "#",
+      title: "Perform-MD",
+      description:
+        "A medical web app for a pain management clinic with appointment scheduling and patient booking flow. Built with modern fullstack tools.",
+      tech: ["Next.js", "Tailwind", "GraphQL", "Node.js"],
+      codeUrl: "https://github.com/SlinkyCollins/Perform-Md",
+      liveUrl: "https://performmd.vercel.app/schedule",
+      image: "/images/projects/performmd.png",
     },
     {
       title: "Portfolio Website",
-      description: "A modern portfolio website showcasing projects and skills with smooth animations.",
-      tech: ["Next.js", "Framer Motion", "Tailwind", "MDX"],
-      codeUrl: "#",
-      liveUrl: "#",
+      description:
+        "A sleek and animated portfolio site to showcase my skills and projects, built with motion effects and clean responsive design.",
+      tech: ["React", "Framer Motion", "TailwindCSS"],
+      codeUrl: "https://github.com/SlinkyCollins/Portfolio",
+      liveUrl: "https://collynx.vercel.app/",
+      image: "/images/projects/portfolio.png",
     },
     {
-      title: "Blog Platform",
-      description: "A content management system with markdown support, SEO optimization, and analytics.",
-      tech: ["Gatsby", "GraphQL", "Contentful", "Netlify"],
-      codeUrl: "#",
-      liveUrl: "#",
+      title: "Van Life",
+      description:
+        "A van listing and rental platform for digital nomads. Features include auth, listings, detail pages, and payment gateway setup.",
+      tech: ["React", "Node.js", "Express", "MongoDB"],
+      codeUrl: "https://github.com/SlinkyCollins/Van-Life",
+      liveUrl: "https://van-life-flax.vercel.app/",
+      image: "/images/projects/vanlife.png",
     },
   ]
 
@@ -85,7 +95,7 @@ export default function Projects() {
             My <span className="text-orange-500">Projects</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Here are some of my recent projects that showcase my skills and experience in web development.
+            A few projects I've built, ranging from responsive frontends to full-stack platforms. Each one helped me sharpen my craft.
           </p>
         </motion.div>
 
@@ -104,12 +114,24 @@ export default function Projects() {
               whileHover={{ y: -4, opacity: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
+              {/* IMAGE SECTION */}
+              <div className="mb-4 overflow-hidden rounded-md">
+                <img
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
+
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{project.title}</h3>
               <p className="text-gray-400 mb-4 text-sm leading-relaxed">{project.description}</p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech, techIndex) => (
-                  <span key={techIndex} className="px-2 sm:px-3 py-1 bg-slate-800 text-orange-500 text-xs rounded-full">
+                  <span
+                    key={techIndex}
+                    className="px-2 sm:px-3 py-1 bg-slate-800 text-orange-500 text-xs rounded-full"
+                  >
                     {tech}
                   </span>
                 ))}
@@ -118,6 +140,7 @@ export default function Projects() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <motion.a
                   href={project.codeUrl}
+                  target="_blank"
                   className="flex items-center justify-center gap-2 px-4 py-2 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-colors text-sm"
                   whileHover={{ opacity: 0.9 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
@@ -127,6 +150,7 @@ export default function Projects() {
                 </motion.a>
                 <motion.a
                   href={project.liveUrl}
+                  target="_blank"
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-sm"
                   whileHover={{ opacity: 0.9 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}

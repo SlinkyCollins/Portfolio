@@ -10,6 +10,7 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import LoadingScreen from "./components/LoadingScreen"
+import { Toaster } from "react-hot-toast"
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <AnimatePresence>{isLoading && <LoadingScreen />}</AnimatePresence>
         {!isLoading && (
           <>
+            <Toaster/>
             <Navbar />
             <Hero />
             <About />

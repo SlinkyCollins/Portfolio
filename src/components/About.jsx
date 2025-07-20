@@ -3,14 +3,14 @@ import pfp from "@/assets/pfp4.jpg"
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiRedux, SiVite } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
-import { RiTailwindCssFill } from "react-icons/ri";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaBootstrap, FaFigma, FaNpm, FaReact } from "react-icons/fa";
 import { GrGraphQl, GrMysql } from "react-icons/gr";
 import { SiWebpack } from "react-icons/si";
 import { SiJest } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
 import { motion } from "framer-motion"
-import { FaAngular, FaGitAlt, FaGithub, FaPhp, FaSass, FaVuejs } from "react-icons/fa6";
+import { FaAngular, FaGitAlt, FaGithub, FaPhp, FaVuejs } from "react-icons/fa6";
 import { DiLaravel, DiNodejs, DiVisualstudio } from "react-icons/di";
 
 export default function About() {
@@ -40,10 +40,10 @@ export default function About() {
       { name: "React", icon: FaReact },
       { name: "Angular", icon: FaAngular },
       { name: "Vue", icon: FaVuejs },
+      { name: "NextJS", icon: RiNextjsFill },
       { name: "Vite", icon: SiVite },
       { name: "Tailwind", icon: RiTailwindCssFill },
       { name: "Bootstrap", icon: FaBootstrap },
-      { name: "Sass", icon: FaSass },
       { name: "Redux", icon: SiRedux },
     ],
     backend: [
