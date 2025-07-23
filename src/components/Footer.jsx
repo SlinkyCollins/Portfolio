@@ -1,5 +1,3 @@
-"use client"
-
 import { Github, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
 import { BsTwitterX, BsWhatsapp } from "react-icons/bs"
@@ -43,7 +41,6 @@ export default function Footer() {
                   aria-label={social.label}
                   className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors"
                   whileHover={{ y: -2, opacity: 0.9 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}

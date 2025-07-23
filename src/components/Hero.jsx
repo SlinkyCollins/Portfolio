@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import pfp from "@/assets/pfp2.jpg"
 import { Typewriter } from "react-simple-typewriter"

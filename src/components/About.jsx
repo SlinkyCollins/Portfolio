@@ -1,4 +1,3 @@
-"use client"
 import pfp from "@/assets/pfp4.jpg"
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiRedux, SiVite } from "react-icons/si";
@@ -70,7 +69,7 @@ export default function About() {
 
 
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" aria-label="About Me" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -103,28 +102,25 @@ export default function About() {
             />
           </motion.div>
 
-          <motion.div
-            className="lg:col-span-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
-              Yo! I'm Ademola Afolabi Collins but you can call me Collynx. I'm a 20 y/o Full Stack Web Dev repping Nigeria 🇳🇬 and currently wrapping up my Computer Engineering degree at LAUTECH.
-            </p>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
-              I build slick, responsive web apps using <strong>React</strong>, <strong>Vue</strong>, and <strong>Angular</strong>, backed by powerful APIs built with <strong>Node.js</strong> and <strong>Laravel</strong>.
-            </p>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
-              I've worked with <strong>Firebase</strong>, <strong>MongoDB</strong>, and tools like <strong>Postman</strong> and <strong>Jest</strong> to test, debug, and ship real-world apps. Sometimes I add animations not just for the flex, but to make things feel alive.
-            </p>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4">
-              Outside coding, I'm a football fanatic, movie binger, and music addict. If I'm not pushing commits, I'm probably vibing to some Afrobeat or catching a crazy Champions League moment.
-            </p>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-              I love solving problems, breaking things (intentionally or not), and figuring out better ways to build cool stuff. Always learning, always building.
-            </p>
+          <motion.div className="lg:col-span-2">
+            {[
+              "Yo! I'm Ademola Afolabi Collins — aka Collynx. I'm a 20 y/o Full Stack Web Dev from Nigeria 🇳🇬, wrapping up my Computer Engineering degree at LAUTECH.",
+              "I craft responsive web apps with React, Vue, or Angular, powered by APIs built with Node.js and Laravel.",
+              "I've used Firebase, MongoDB, Postman, and Jest to build, test, and debug real-world projects. I throw in animations too not just for vibes, but to make interfaces feel alive.",
+              "Off the code, I'm a football head, movie lover, and music fiend. If I'm not pushing commits, I'm catching UCL goals or vibing to Afrobeat.",
+              "I break things (sometimes on purpose), solve problems, and keep learning how to build cool, meaningful stuff.",
+            ].map((text, index) => (
+              <motion.p
+                key={index}
+                className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 last:mb-0"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {text}
+              </motion.p>
+            ))}
           </motion.div>
         </div>
 

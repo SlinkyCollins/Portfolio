@@ -1,5 +1,3 @@
-"use client"
-
 import emailjs from "@emailjs/browser"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import toast from "react-hot-toast"

@@ -1,5 +1,3 @@
-"use client"
-
 import { ExternalLink, Github } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -13,6 +11,7 @@ export default function Projects() {
       codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
       liveUrl: "https://jobnet.vercel.app/",
       image: "/images/projects/jobnet.png",
+      status: "ongoing", // 🟢 this one’s ongoing
     },
     {
       title: "Printivo Clone",
@@ -31,6 +30,7 @@ export default function Projects() {
       codeUrl: "https://github.com/SlinkyCollins/Bank-App",
       liveUrl: "https://nairanest.vercel.app/",
       image: "/images/projects/bank.png",
+      status: "ongoing", // 🟢 this one’s ongoing
     },
     {
       title: "Perform-MD",
@@ -40,6 +40,7 @@ export default function Projects() {
       codeUrl: "https://github.com/SlinkyCollins/Perform-Md",
       liveUrl: "https://performmd.vercel.app/schedule",
       image: "/images/projects/performmd.png",
+      status: "ongoing", // 🟢 this one’s ongoing
     },
     {
       title: "Portfolio Website",
@@ -123,6 +124,13 @@ export default function Projects() {
                 />
               </div>
 
+              {project.status === "ongoing" && (
+                <div className="flex items-center gap-1 mb-2">
+                  <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-green-400 text-xs font-medium">Ongoing</span>
+                </div>
+              )}
+
               <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{project.title}</h3>
               <p className="text-gray-400 mb-4 text-sm leading-relaxed">{project.description}</p>
 
@@ -162,6 +170,20 @@ export default function Projects() {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="text-center mt-12">
+          <motion.a
+            href="https://github.com/SlinkyCollins"
+            target="_blank"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-colors text-sm"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <Github size={16} />
+            View more on GitHub
+          </motion.a>
+        </div>
+
       </div>
     </section>
   )
