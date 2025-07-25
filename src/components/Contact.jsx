@@ -39,8 +39,8 @@ export default function Contact() {
     if (!validate()) return
     setIsSending(true)
     emailjs
-      .sendForm("service_s0hblvr", "template_c5wpjze", formRef.current, {
-        publicKey: "uxAFKUbpwytSJOdw1",
+      .sendForm(import.meta.env.VITE_SERVICE_KEY, import.meta.env.VITE_TEMPLATE_KEY, formRef.current, {
+        publicKey: import.meta.env.VITE_PUBLIC_KEY,
       })
       .then(
         (result) => {
