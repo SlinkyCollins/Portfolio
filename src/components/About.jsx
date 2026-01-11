@@ -105,10 +105,10 @@ export default function About() {
           <motion.div className="lg:col-span-2">
             {[
               "Yo! I'm Ademola Afolabi Collins — aka Collynx. I'm a 20 y/o Full Stack Web Dev from Nigeria 🇳🇬, wrapping up my Computer Engineering degree at LAUTECH.",
-              "I craft responsive web apps with React, Vue, or Angular, powered by APIs built with Node.js and Laravel.",
-              "I've used Firebase, MongoDB, Postman, and Jest to build, test, and debug real-world projects. I throw in animations too not just for vibes, but to make interfaces feel alive.",
+              "I build production-ready web applications with a focus on clean architecture, maintainability, and real-world usability. I care less about flashy demos and more about software that works, scales, and can be maintained long after it's shipped.",
+              "Most of my work centers around turning practical ideas into reliable systems from backend logic to frontend experience using React, Vue, Angular, Node.js, and Laravel.",
+              "I like my apps tested, my APIs clean, and my interfaces smooth. Animations included, but only when they actually add to the experience.",
               "Off the code, I'm a football head, movie lover, and music fiend. If I'm not pushing commits, I'm catching UCL goals or vibing to Afrobeat.",
-              "I break things (sometimes on purpose), solve problems, and keep learning how to build cool, meaningful stuff.",
             ].map((text, index) => (
               <motion.p
                 key={index}

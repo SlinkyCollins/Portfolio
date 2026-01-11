@@ -6,59 +6,57 @@ export default function Projects() {
     {
       title: "JobNet",
       description:
-        "A job portal for tech roles where users can search, apply, and manage jobs, while admins handle postings and applications via their respective dashboards.",
-      tech: ["Angular", "PHP", "MySQL", "Bootstrap"],
+        "A full-stack recruitment engine solving the 'Identity Gap' by merging Social Login (Firebase) with strict SQL Relational Data. Features a custom Dual-Pipeline Auth system and a real-time Currency Normalization Engine for global salary filtering.",
+      tech: ["Angular 18", "PHP 8.2", "MySQL", "Firebase Auth", "Docker"],
       codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
       liveUrl: "https://jobnet.vercel.app/",
-      image: "/images/projects/jobnet.png",
-      status: "ongoing", // 🟢 this one’s ongoing
+      image: "/images/projects/jobnet.png"
     },
     {
-      title: "Printivo Clone",
+      title: "NairaNest (Bank App)", // Renamed to match the brand
       description:
-        "A front-end clone of the Printivo ecommerce platform, built to mirror UI/UX patterns with responsive design and product browsing.",
-      tech: ["React", "Vite", "CSS"],
-      codeUrl: "https://github.com/SlinkyCollins/Printivo-Clone",
-      liveUrl: "https://printivo-clone-omega.vercel.app/",
-      image: "/images/projects/printivo.png",
-    },
-    {
-      title: "Bank Web App",
-      description:
-        "A digital banking app with user authentication, transaction history, and balance tracking. Built with MERN stack and secure REST APIs.",
-      tech: ["React", "Express", "Node.js", "MongoDB"],
+        "A simulation of a core banking infrastructure handling ACID-compliant transactions using MongoDB Sessions. Implements custom rate-limiting security, role-based access (RBAC), and real-time visual analytics for income tracking.",
+      tech: ["React", "Redux Toolkit", "Node.js", "MongoDB", "Material UI"],
       codeUrl: "https://github.com/SlinkyCollins/Bank-App",
       liveUrl: "https://nairanest.vercel.app/",
-      image: "/images/projects/bank.png",
-      status: "ongoing", // 🟢 this one’s ongoing
+      image: "/images/projects/bank.png"
     },
     {
       title: "Perform-MD",
       description:
-        "A medical web app for a pain management clinic with appointment scheduling and patient booking flow. Built with modern fullstack tools.",
-      tech: ["Nextjs", "Tailwind CSS", "GraphQL", "Node.js"],
+        "A patient management portal for a pain clinic designed to streamline appointment booking. Features complex form handling for patient intake, scheduling logic, and a responsive dashboard for medical practitioners.",
+      tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "GraphQL"],
       codeUrl: "https://github.com/SlinkyCollins/Perform-Md",
       liveUrl: "https://performmd.vercel.app/schedule",
       image: "/images/projects/performmd.png",
-      status: "ongoing", // 🟢 this one’s ongoing
+      status: "ongoing",
     },
     {
-      title: "Portfolio Website",
+      title: "Phone OS Simulator",
       description:
-        "A sleek and animated portfolio site to showcase my skills and projects, built with motion effects and clean responsive design.",
-      tech: ["React", "Framer Motion", "Tailwind CSS"],
-      codeUrl: "https://github.com/SlinkyCollins/Portfolio",
-      liveUrl: "https://collynx.vercel.app/",
-      image: "/images/projects/portfolio.png",
+        "A browser-based phone operating system simulation built entirely with Vanilla JavaScript. Features a Regex-based USSD engine for validating airtime vouchers, a physics-based game using the Canvas API, and real-time media integration for the Camera and Music apps.",
+      tech: ["Vanilla JavaScript", "Canvas API", "Webcam API", "LocalStorage", "CSS3"],
+      codeUrl: "https://github.com/SlinkyCollins/Phone-App",
+      liveUrl: "https://slinkycollins.github.io/Phone-App/",
+      image: "/images/projects/phone.png"
     },
     {
       title: "Van Life",
       description:
-        "A van listing and rental platform for digital nomads. Features include auth, listings, detail pages, and payment gateway setup.",
-      tech: ["React", "Node.js", "Express", "MongoDB"],
+        "A travel rental marketplace for digital nomads. Implements dynamic route protection, complex data filtering for van types, and a server-mirrored API structure for handling bookings and host listings.",
+      tech: ["React Router 6", "MirageJS", "Firebase", "CSS Modules"],
       codeUrl: "https://github.com/SlinkyCollins/Van-Life",
       liveUrl: "https://van-life-flax.vercel.app/",
-      image: "/images/projects/vanlife.png",
+      image: "/images/projects/vanlife.png"
+    },
+    {
+      title: "Portfolio V1",
+      description:
+        "A performance-optimized personal site featuring smooth page transitions and interactive motion components. Built with a focus on accessibility, SEO best practices, and clean component architecture.",
+      tech: ["React", "Framer Motion", "Tailwind CSS", "EmailJS"],
+      codeUrl: "https://github.com/SlinkyCollins/Portfolio",
+      liveUrl: "https://collynx.vercel.app/",
+      image: "/images/projects/portfolio.png"
     },
   ]
 
