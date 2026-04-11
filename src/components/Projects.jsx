@@ -76,7 +76,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="overflow-x-hidden bg-slate-900/70 px-4 py-20 sm:px-6">
+    <section id="projects" className="overflow-x-hidden bg-slate-900/70 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl overflow-hidden">
         <motion.div
           className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between"
