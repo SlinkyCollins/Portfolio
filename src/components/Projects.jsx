@@ -35,16 +35,6 @@ export default function Projects() {
       image: "/images/projects/bank.png",
     },
     {
-      title: "Perform-MD (Patient Management Portal)",
-      description:
-        "A patient management portal designed to simplify intake and scheduling for a pain management clinic. I built multi-step booking flows, conflict-aware scheduling logic, and a responsive practitioner dashboard, using GraphQL and server-side validation to reduce double bookings and keep clinical data entry precise.",
-      tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "GraphQL"],
-      codeUrl: "https://github.com/SlinkyCollins/Perform-Md",
-      liveUrl: "https://performmd.vercel.app/schedule",
-      image: "/images/projects/performmd.png",
-      status: "ongoing",
-    },
-    {
       title: "Phone OS Simulator (Browser-Based Mobile OS)",
       description:
         "A browser-based phone OS simulation built with Vanilla JavaScript to demonstrate low-level frontend and platform API work without frameworks. It includes app-like state isolation, USSD validation, a Canvas mini game, and a webcam-powered camera feature, all coordinated through DOM state and LocalStorage.",
@@ -52,16 +42,7 @@ export default function Projects() {
       codeUrl: "https://github.com/SlinkyCollins/Phone-App",
       liveUrl: "https://slinkycollins.github.io/Phone-App/",
       image: "/images/projects/phone.png",
-    },
-    {
-      title: "Portfolio V1 (Personal Developer Site)",
-      description:
-        "A personal developer portfolio built to present projects with smooth motion, responsive layouts, and a working contact flow. I used React, Tailwind CSS, and Framer Motion to create polished page transitions and jank-free interactions, while EmailJS handled message delivery without requiring a custom backend.",
-      tech: ["React", "Framer Motion", "Tailwind CSS", "EmailJS"],
-      codeUrl: "https://github.com/SlinkyCollins/Portfolio",
-      liveUrl: "https://collynx.vercel.app/",
-      image: "/images/projects/portfolio.png",
-    },
+    }
   ]
 
   const containerVariants = {
