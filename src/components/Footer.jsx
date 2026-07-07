@@ -22,7 +22,7 @@ export default function Footer() {
         >
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Collynx</h3>
-            <p className="text-gray-400 text-sm sm:text-base">Full Stack Developer</p>
+            <p className="text-gray-400 text-sm sm:text-base">Full Stack Software Engineer</p>
           </div>
 
           <motion.div

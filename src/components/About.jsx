@@ -104,11 +104,11 @@ export default function About() {
 
           <motion.div className="lg:col-span-2">
             {[
-              "Yo! I'm Ademola Afolabi Collins — aka Collynx. I'm a 20 y/o Full Stack Web Dev from Nigeria 🇳🇬, wrapping up my Computer Engineering degree at LAUTECH.",
-              "I build production-ready web applications with a focus on clean architecture, maintainability, and real-world usability. I care less about flashy demos and more about software that works, scales, and can be maintained long after it's shipped.",
-              "Most of my work centers around turning practical ideas into reliable systems from backend logic to frontend experience using React, Vue, Angular, Node.js, and Laravel.",
-              "I like my apps tested, my APIs clean, and my interfaces smooth. Animations included, but only when they actually add to the experience.",
-              "Off the code, I'm a football head, movie lover, and music fiend. If I'm not pushing commits, I'm catching UCL goals or vibing to Afrobeat.",
+              "Yo! I'm Ademola Afolabi Collins — aka Collynx. I'm a Full-Stack Software Engineer from Nigeria 🇳🇬 and a Computer Engineering graduate from LAUTECH.",
+              "I build production-ready web applications with a focus on clean architecture, maintainability, and real-world usability. I care less about flashy demos and more about software that works, scales, and remains maintainable long after it's shipped.",
+              "Most of my work revolves around designing reliable backend systems and pairing them with intuitive frontend experiences using Vue, React, Angular, Laravel, Node.js, and modern web technologies.",
+              "I like my APIs clean, my applications well-tested, and my interfaces smooth. Animations included but only when they improve the experience rather than distract from it.",
+              "Outside of coding, I'm a football fan, movie lover, and an Afrobeats enthusiast. If I'm not shipping features, you'll probably find me watching the Premier League or listening to good music.",
             ].map((text, index) => (
               <motion.p
                 key={index}

@@ -73,10 +73,10 @@ export default function Projects() {
             <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
               A curated selection of systems I&apos;ve built across fintech, healthcare, recruitment,
               and interactive frontend experiences. Swipe or use the controls to move through each
-              project two at a time.
+              project at a time.
             </p>
           </div>
-
+    
           <div className="flex items-center gap-3 self-start lg:self-auto">
             <button
               type="button"
