@@ -22,14 +22,24 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
               Hi, I'm <span className="text-orange-500">
                 <Typewriter
-                  words={["Collins.", "a Software Engineer.", "a Web Wizard."]}
+                  words={[
+                    "Collins.",
+                    "a Software Engineer.",
+                    "a Web Wizard.",
+                    "a Builder.",
+                    "a Bug Slayer.",
+                    "Building Cool Stuff.",
+                    "Turning Ideas into Reality.",
+                    "Always Learning.",
+                    "Collins.",
+                  ]}
                   loop={true}
                   cursor
                   cursorStyle="|"
@@ -46,7 +56,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
-              Full Stack Developer
+              Full Stack Software Engineer
             </motion.p>
 
             <motion.p
@@ -101,7 +111,7 @@ export default function Hero() {
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <img
                       src={pfp}
-                      alt="Collins Afolabi - Full Stack Developer"
+                      alt="Collins Afolabi - Full Stack Software Engineer"
                       width={400}
                       height={400}
                       className="w-full h-full object-cover"
