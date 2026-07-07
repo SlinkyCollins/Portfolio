@@ -34,8 +34,6 @@ export default function Hero() {
                     "a Software Engineer.",
                     "a Web Wizard.",
                     "a Builder.",
-                    "Building Cool Stuff.",
-                    "Turning Ideas into Reality.",
                     "Always Learning.",
                     "Collins.",
                   ]}
