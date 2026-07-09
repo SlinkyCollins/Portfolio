@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import pfp from "@/assets/pfp2.jpg"
 import { Typewriter } from "react-simple-typewriter"
+import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -69,13 +70,13 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <motion.button
                 onClick={scrollToProjects}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base cursor-pointer"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-sm font-medium transition-colors flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 whileHover={{ opacity: 0.9 }}
               >
-                View Projects
+                View Projects <ArrowRight className="w-4 h-4" />
               </motion.button>
               <motion.a
                 href="/Collins_Resume.docx"

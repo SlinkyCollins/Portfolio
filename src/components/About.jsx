@@ -11,8 +11,12 @@ import { SiPostman } from "react-icons/si";
 import { motion } from "framer-motion"
 import { FaAngular, FaGitAlt, FaGithub, FaPhp, FaVuejs } from "react-icons/fa6";
 import { DiLaravel, DiNodejs, DiVisualstudio } from "react-icons/di";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export default function About() {
+  // Mobile UX Optimization: Track expanded state for about section
+  const [showFullBio, setShowFullBio] = useState(false)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -109,18 +113,38 @@ export default function About() {
               "Most of my work revolves around designing reliable backend systems and pairing them with intuitive frontend experiences using Vue, React, Angular, Laravel, Node.js, and modern web technologies.",
               "I like my APIs clean, my applications well-tested, and my interfaces smooth. Animations included but only when they improve the experience rather than distract from it.",
               "Outside of coding, I'm a football fan, movie lover, and an Afrobeats enthusiast. If I'm not shipping features, you'll probably find me watching the Premier League or listening to good music.",
-            ].map((text, index) => (
-              <motion.p
-                key={index}
-                className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 last:mb-0"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-50px" }}
+            ].map((text, index) => {
+              // Mobile UX Optimization: Show first 2 paragraphs on mobile, all on larger screens or when expanded
+              const shouldShow = showFullBio || window.innerWidth >= 1024 || index < 2;
+              
+              if (!shouldShow) return null;
+              
+              return (
+                <motion.p
+                  key={index}
+                  className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 last:mb-0"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  {text}
+                </motion.p>
+              )
+            })}
+
+            {/* Mobile UX Optimization: Show "Read more" toggle on mobile when collapsed */}
+            {!showFullBio && window.innerWidth < 1024 && (
+              <motion.button
+                onClick={() => setShowFullBio(true)}
+                className="mt-6 flex items-center gap-2 px-4 py-2 text-sm font-medium text-orange-400 border border-orange-400/30 hover:border-orange-400 hover:bg-orange-400/10 rounded-lg transition-colors lg:hidden"
+                whileHover={{ backgroundColor: "rgba(251, 146, 60, 0.1)" }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
-                {text}
-              </motion.p>
-            ))}
+                Read more about me
+                <ChevronDown size={16} />
+              </motion.button>
+            )}
           </motion.div>
         </div>
 
