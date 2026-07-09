@@ -131,11 +131,6 @@ export default function Projects() {
               prevEl: ".projects-swiper-prev",
               nextEl: ".projects-swiper-next",
             }}
-            /* MOBILE UX FIX: Swiper's wrapper defaults to align-items:stretch, which
-               forces EVERY slide (not just visible ones) to match the tallest card's
-               height. That's what was causing the empty gap under "More details" /
-               "Show less" on shorter cards. items-start makes each card size to its
-               own content only. */
             wrapperClass="items-start"
             slidesPerView={1}
             slidesPerGroup={1}
@@ -191,9 +186,9 @@ export default function Projects() {
                     <h3 className="text-base font-semibold leading-snug text-white sm:text-xl">
                       {project.title}
                     </h3>
-                    {/* MOBILE UX (Task 1): description is clamped to 3 lines on mobile to reduce
-                        scroll length. Expanding the card, or reaching sm+ breakpoints, shows the
-                        full description. Text itself is untouched. */}
+                    
+                    {/* POLISH PASS (Task 1): Clean description line-clamping logic. 
+                        Unclamps completely when isExpanded is true or when on sm+ screens. */}
                     <p
                       className={`mt-3 text-xs leading-6 text-slate-300 sm:text-sm lg:text-[15px] ${
                         isExpanded ? "" : "line-clamp-3"
@@ -207,7 +202,27 @@ export default function Projects() {
                       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-300/80">
                         Project Scope
                       </p>
-                      <div className="mt-2 flex flex-wrap gap-2">
+                      
+                      {/* POLISH PASS (Task 3 Optional): Metric optimization for very small mobile screens.
+                          Shows first two metrics + count badge when collapsed to maintain compact scannability. */}
+                      <div className="mt-2 flex flex-wrap gap-2 sm:hidden">
+                        {(isExpanded ? project.metrics : project.metrics.slice(0, 2)).map((metric) => (
+                          <span
+                            key={metric}
+                            className="rounded-full border border-sky-400/25 bg-sky-400/10 px-2.5 py-1 text-[11px] font-semibold text-sky-100"
+                          >
+                            {metric}
+                          </span>
+                        ))}
+                        {!isExpanded && project.metrics.length > 2 && (
+                          <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
+                            +{project.metrics.length - 2} more
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Desktop and Tablet: Displays all metrics out-of-the-box */}
+                      <div className="mt-2 hidden flex-wrap gap-2 sm:flex">
                         {project.metrics.map((metric) => (
                           <span
                             key={metric}
@@ -219,9 +234,23 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    {/* MOBILE UX (Task 2): Challenge Solved is hidden by default on mobile and
-                        only revealed when the card is expanded. Always visible from sm+ up, since
-                        desktop has room to show it by default. */}
+                    {/* POLISH PASS (Task 2): Relocated lightweight toggle button.
+                        Placed immediately below the metrics block to intuitively connect the action
+                        with the progressive content sections it triggers directly beneath it. */}
+                    <button
+                      type="button"
+                      onClick={() => toggleCard(project.title)}
+                      aria-expanded={isExpanded}
+                      className="mt-4 flex items-center justify-center gap-1.5 self-start text-xs font-medium text-slate-300 transition hover:text-orange-300 sm:hidden"
+                    >
+                      {isExpanded ? "Show less" : "More details"}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      />
+                    </button>
+
+                    {/* Progressive Disclosure Section: Challenge Solved */}
                     <p
                       className={`mt-4 border-l border-sky-400/40 pl-3 text-xs leading-5 text-slate-300 sm:text-sm ${
                         isExpanded ? "block" : "hidden"
@@ -231,10 +260,7 @@ export default function Projects() {
                       {project.challenge}
                     </p>
 
-                    {/* MOBILE UX (Task 3): tech stack is trimmed on mobile to reduce badge overload.
-                        - Mobile collapsed: first 4 technologies + a "+N more" indicator.
-                        - Mobile expanded: full tech stack.
-                        - sm+ (tablet/desktop): full tech stack always, unaffected by card state. */}
+                    {/* Progressive Disclosure Section: Tech Stack */}
                     <div className="mt-5 flex flex-wrap gap-2 sm:hidden">
                       {(isExpanded ? project.tech : project.tech.slice(0, 4)).map((tech) => (
                         <span
@@ -261,6 +287,7 @@ export default function Projects() {
                       ))}
                     </div>
 
+                    {/* Primary Action Controls */}
                     <div className="mt-6 grid gap-3 lg:grid-cols-2">
                       <motion.a
                         href={project.codeUrl}
@@ -285,21 +312,6 @@ export default function Projects() {
                         Live Demo
                       </motion.a>
                     </div>
-
-                    {/* MOBILE UX (Task 2): lightweight expand/collapse toggle. Only rendered on
-                        mobile (sm:hidden) since sm+ screens already show everything by default. */}
-                    <button
-                      type="button"
-                      onClick={() => toggleCard(project.title)}
-                      aria-expanded={isExpanded}
-                      className="mt-4 flex items-center justify-center gap-1.5 self-center text-xs font-medium text-slate-300 transition hover:text-orange-300 sm:hidden"
-                    >
-                      {isExpanded ? "Show less" : "More details"}
-                      <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
-                      />
-                    </button>
                   </div>
                 </article>
               </SwiperSlide>
