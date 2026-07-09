@@ -1,5 +1,5 @@
 import { useState } from "react"
-import pfp from "@/assets/pfp4.jpg"
+import pfp from "@/assets/aboutImg.jpg"
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiRedux, SiVite } from "react-icons/si";
 import { BiLogoMongodb } from "react-icons/bi";
