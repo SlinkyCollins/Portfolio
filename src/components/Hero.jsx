@@ -111,7 +111,7 @@ export default function Hero() {
                       alt="Collins Afolabi - Full Stack Software Engineer"
                       width={400}
                       height={400}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
                       priority
                     />
                   </div>

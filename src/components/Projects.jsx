@@ -152,7 +152,7 @@ export default function Projects() {
                     <img
                       src={project.image}
                       alt={`${project.title} screenshot`}
-                      className="h-44 w-full object-cover object-top transition duration-500 group-hover:scale-105 sm:h-56 lg:h-72"
+                      className="w-full h-44 object-cover object-top group-hover:scale-105 sm:h-56 lg:h-72 transition-transform duration-500 grayscale group-hover:grayscale-0"
                     />
                     <div className="absolute inset-x-0 bottom-0 z-20 flex items-center justify-between px-4 pb-4 sm:px-6">
                       {project.status === "ongoing" ? (
