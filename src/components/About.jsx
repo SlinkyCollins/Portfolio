@@ -1,3 +1,4 @@
+import { useState } from "react"
 import pfp from "@/assets/pfp4.jpg"
 import { IoLogoFirebase } from "react-icons/io5";
 import { SiExpress, SiRedux, SiVite } from "react-icons/si";
@@ -11,11 +12,12 @@ import { SiPostman } from "react-icons/si";
 import { motion } from "framer-motion"
 import { FaAngular, FaGitAlt, FaGithub, FaPhp, FaVuejs } from "react-icons/fa6";
 import { DiLaravel, DiNodejs, DiVisualstudio } from "react-icons/di";
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 export default function About() {
-  // Mobile UX Optimization: Track expanded state for about section
+  // MOBILE UX: bio is long (5 paragraphs). On mobile we show the first 2 by
+  // default and hide the rest behind a "Read more" toggle. Desktop always
+  // shows the full bio since there's more room to breathe.
   const [showFullBio, setShowFullBio] = useState(false)
 
   const containerVariants = {
@@ -114,15 +116,15 @@ export default function About() {
               "I like my APIs clean, my applications well-tested, and my interfaces smooth. Animations included but only when they improve the experience rather than distract from it.",
               "Outside of coding, I'm a football fan, movie lover, and an Afrobeats enthusiast. If I'm not shipping features, you'll probably find me watching the Premier League or listening to good music.",
             ].map((text, index) => {
-              // Mobile UX Optimization: Show first 2 paragraphs on mobile, all on larger screens or when expanded
-              const shouldShow = showFullBio || window.innerWidth >= 1024 || index < 2;
-              
-              if (!shouldShow) return null;
-              
+              // MOBILE UX: first 2 paragraphs (intro + what I do) always show.
+              // Paragraphs 3-5 (the "extra" ones) are hidden on mobile until expanded.
+              const isExtra = index >= 2
               return (
                 <motion.p
                   key={index}
-                  className="text-gray-300 text-base sm:text-lg leading-relaxed mb-4 last:mb-0"
+                  className={`text-gray-300 text-base sm:text-lg leading-relaxed mb-4 last:mb-0 ${
+                    isExtra && !showFullBio ? "hidden" : "block"
+                  } sm:block`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
@@ -133,18 +135,19 @@ export default function About() {
               )
             })}
 
-            {/* Mobile UX Optimization: Show "Read more" toggle on mobile when collapsed */}
-            {!showFullBio && window.innerWidth < 1024 && (
-              <motion.button
-                onClick={() => setShowFullBio(true)}
-                className="mt-6 flex items-center gap-2 px-4 py-2 text-sm font-medium text-orange-400 border border-orange-400/30 hover:border-orange-400 hover:bg-orange-400/10 rounded-lg transition-colors lg:hidden"
-                whileHover={{ backgroundColor: "rgba(251, 146, 60, 0.1)" }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              >
-                Read more about me
-                <ChevronDown size={16} />
-              </motion.button>
-            )}
+            {/* MOBILE UX: toggle only rendered on mobile — sm+ already shows the full bio. */}
+            <button
+              type="button"
+              onClick={() => setShowFullBio((prev) => !prev)}
+              aria-expanded={showFullBio}
+              className="mt-1 flex items-center gap-1.5 text-sm font-medium text-orange-400 transition hover:text-orange-300 sm:hidden"
+            >
+              {showFullBio ? "Show less" : "Read more"}
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${showFullBio ? "rotate-180" : ""}`}
+              />
+            </button>
           </motion.div>
         </div>
 

@@ -1,4 +1,5 @@
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
+import { useState } from "react"
+import { ChevronLeft, ChevronRight, ExternalLink, Github, ChevronDown } from "lucide-react"
 import { motion } from "framer-motion"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { A11y, Navigation } from "swiper/modules"
@@ -6,6 +7,14 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 export default function Projects() {
+  // MOBILE UX: tracks which project cards are expanded (keyed by project title).
+  // Each card's expand/collapse state is independent of the others.
+  const [expandedCards, setExpandedCards] = useState({})
+
+  const toggleCard = (title) => {
+    setExpandedCards((prev) => ({ ...prev, [title]: !prev[title] }))
+  }
+
   const projects = [
     {
       title: "Vaultly (Digital Banking System)",
@@ -122,6 +131,12 @@ export default function Projects() {
               prevEl: ".projects-swiper-prev",
               nextEl: ".projects-swiper-next",
             }}
+            /* MOBILE UX FIX: Swiper's wrapper defaults to align-items:stretch, which
+               forces EVERY slide (not just visible ones) to match the tallest card's
+               height. That's what was causing the empty gap under "More details" /
+               "Show less" on shorter cards. items-start makes each card size to its
+               own content only. */
+            wrapperClass="items-start"
             slidesPerView={1}
             slidesPerGroup={1}
             spaceBetween={14}
@@ -144,7 +159,11 @@ export default function Projects() {
             touchRatio={1.2}
             className="!overflow-hidden !pb-3"
           >
-            {projects.map((project) => (
+            {projects.map((project) => {
+              // MOBILE UX: per-card expanded flag driving progressive disclosure below.
+              const isExpanded = !!expandedCards[project.title]
+
+              return (
               <SwiperSlide key={project.title} className="!h-auto min-w-0">
                 <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(15,23,42,0.82))] shadow-[0_24px_80px_rgba(2,6,23,0.45)] transition duration-300 hover:-translate-y-1 hover:border-orange-400/60">
                   <div className="relative overflow-hidden">
@@ -172,7 +191,14 @@ export default function Projects() {
                     <h3 className="text-base font-semibold leading-snug text-white sm:text-xl">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-xs leading-6 text-slate-300 sm:text-sm lg:text-[15px]">
+                    {/* MOBILE UX (Task 1): description is clamped to 3 lines on mobile to reduce
+                        scroll length. Expanding the card, or reaching sm+ breakpoints, shows the
+                        full description. Text itself is untouched. */}
+                    <p
+                      className={`mt-3 text-xs leading-6 text-slate-300 sm:text-sm lg:text-[15px] ${
+                        isExpanded ? "" : "line-clamp-3"
+                      } sm:line-clamp-none`}
+                    >
                       {project.description}
                     </p>
 
@@ -193,13 +219,38 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    {/* Challenge line adds one concise technical proof point without expanding the card. */}
-                    <p className="mt-4 border-l border-sky-400/40 pl-3 text-xs leading-5 text-slate-300 sm:text-sm">
+                    {/* MOBILE UX (Task 2): Challenge Solved is hidden by default on mobile and
+                        only revealed when the card is expanded. Always visible from sm+ up, since
+                        desktop has room to show it by default. */}
+                    <p
+                      className={`mt-4 border-l border-sky-400/40 pl-3 text-xs leading-5 text-slate-300 sm:text-sm ${
+                        isExpanded ? "block" : "hidden"
+                      } sm:block`}
+                    >
                       <span className="font-semibold text-slate-100">Challenge solved:</span>{" "}
                       {project.challenge}
                     </p>
 
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    {/* MOBILE UX (Task 3): tech stack is trimmed on mobile to reduce badge overload.
+                        - Mobile collapsed: first 4 technologies + a "+N more" indicator.
+                        - Mobile expanded: full tech stack.
+                        - sm+ (tablet/desktop): full tech stack always, unaffected by card state. */}
+                    <div className="mt-5 flex flex-wrap gap-2 sm:hidden">
+                      {(isExpanded ? project.tech : project.tech.slice(0, 4)).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-orange-500/20 bg-orange-500/10 px-2.5 py-1 text-[11px] font-medium text-orange-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {!isExpanded && project.tech.length > 4 && (
+                        <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
+                          +{project.tech.length - 4} more
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
@@ -234,10 +285,26 @@ export default function Projects() {
                         Live Demo
                       </motion.a>
                     </div>
+
+                    {/* MOBILE UX (Task 2): lightweight expand/collapse toggle. Only rendered on
+                        mobile (sm:hidden) since sm+ screens already show everything by default. */}
+                    <button
+                      type="button"
+                      onClick={() => toggleCard(project.title)}
+                      aria-expanded={isExpanded}
+                      className="mt-4 flex items-center justify-center gap-1.5 self-center text-xs font-medium text-slate-300 transition hover:text-orange-300 sm:hidden"
+                    >
+                      {isExpanded ? "Show less" : "More details"}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      />
+                    </button>
                   </div>
                 </article>
               </SwiperSlide>
-            ))}
+              )
+            })}
           </Swiper>
         </motion.div>
 
