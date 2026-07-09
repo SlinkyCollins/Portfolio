@@ -10,7 +10,9 @@ export default function Projects() {
     {
       title: "Vaultly (Digital Banking System)",
       description:
-        "A digital banking demo built to model core account operations with production-style safeguards. I used Laravel transactions, row-level locking, and deadlock retries to protect deposits, transfers, and withdrawals, then paired it with a Vue 3 SPA that enforces route ownership and keeps transaction records and profile media traceable.",
+        "Vaultly is a production-style digital banking system focused on transaction integrity, concurrency handling, and secure financial operations. It uses Laravel transactions, row-level locking, and deadlock retries to protect deposits, transfers, and withdrawals while maintaining traceable transaction records.",
+      // Metrics give recruiters a quick proof point for project depth without lengthening the description.
+      metrics: ["13 Pages", "21 API Endpoints", "4 Cloud Services"],
       tech: ["Vue 3", "Pinia", "Laravel 12", "MySQL", "Sanctum", "Cloudinary", "Vite"],
       codeUrl: "https://github.com/SlinkyCollins/vaultly-frontend",
       liveUrl: "https://vaultlydemo.vercel.app",
@@ -19,7 +21,8 @@ export default function Projects() {
     {
       title: "JobNet (Global Recruitment Engine)",
       description:
-        "A full-stack recruitment platform built to make global hiring workflows more consistent across authentication and salary discovery. I combined Firebase social login with relational MySQL records through a dual-pipeline auth flow, then added exchange-rate normalization so users can compare roles in local currency without compromising session integrity.",
+        "JobNet is a global recruitment platform built to make hiring workflows consistent across authentication, role discovery, and compensation comparison. It connects Firebase social login with relational MySQL records, then normalizes salaries with exchange-rate data so users can evaluate jobs in local currency.",
+      metrics: ["61 API Endpoints", "31 Angular Pages", "3 Dashboards"],
       tech: ["Angular 18", "PHP 8.2", "MySQL", "Firebase Auth", "Docker"],
       codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
       liveUrl: "https://jobnet.vercel.app/",
@@ -28,7 +31,8 @@ export default function Projects() {
     {
       title: "NairaNest (Core Banking Infrastructure)",
       description:
-        "A banking simulation focused on making financial operations reliable at the application layer. I used MongoDB sessions for atomic multi-document balance updates, then added rate limiting, RBAC, and dashboard analytics so the platform could handle secure account actions while surfacing spending and income trends.",
+        "NairaNest is a core banking simulation focused on reliable account operations, secure access control, and financial visibility. It uses MongoDB sessions for atomic multi-document balance updates, with rate limiting, RBAC, and analytics dashboards supporting secure banking workflows.",
+      metrics: ["21 API Endpoints", "14 Banking Features", "8 Security Features"],
       tech: ["React", "Redux Toolkit", "Node.js", "MongoDB", "Material UI"],
       codeUrl: "https://github.com/SlinkyCollins/Bank-App",
       liveUrl: "https://nairanest.vercel.app/",
@@ -37,7 +41,8 @@ export default function Projects() {
     {
       title: "Phone OS Simulator (Browser-Based Mobile OS)",
       description:
-        "A browser-based phone OS simulation built with Vanilla JavaScript to demonstrate low-level frontend and platform API work without frameworks. It includes app-like state isolation, USSD validation, a Canvas mini game, and a webcam-powered camera feature, all coordinated through DOM state and LocalStorage.",
+        "Phone OS Simulator is a browser-based mobile environment built with Vanilla JavaScript to model app state, persistence, and device-like interactions without a framework. It coordinates isolated applications, USSD validation, Canvas gameplay, and webcam access through DOM state and browser APIs.",
+      metrics: ["10 Applications", "5 Persistent Modules", "4+ Browser APIs"],
       tech: ["Vanilla JavaScript", "Canvas API", "Webcam API", "LocalStorage", "CSS3"],
       codeUrl: "https://github.com/SlinkyCollins/Phone-App",
       liveUrl: "https://slinkycollins.github.io/Phone-App/",
@@ -161,6 +166,21 @@ export default function Projects() {
                     <p className="mt-3 text-xs leading-6 text-slate-300 sm:text-sm lg:text-[15px]">
                       {project.description}
                     </p>
+
+                    {/* Compact evidence badges sit between the problem statement and stack. */}
+                    <div
+                      className="mt-4 flex flex-wrap gap-2"
+                      aria-label={`${project.title} project metrics`}
+                    >
+                      {project.metrics.map((metric) => (
+                        <span
+                          key={metric}
+                          className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-slate-200 sm:px-3"
+                        >
+                          {metric}
+                        </span>
+                      ))}
+                    </div>
 
                     <div className="mt-5 flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
