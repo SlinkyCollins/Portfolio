@@ -207,11 +207,11 @@ export default function About() {
                   animate={{ y: ["0%", "-50%"] }}
                   transition={{ duration: 26, ease: "linear", repeat: Infinity }}
                 >
-                  <div className="tech-stack-mobile-panel">
+                  <div className="tech-stack-mobile-panel py-2.5">
                     {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index))}
                   </div>
 
-                  <div className="tech-stack-mobile-panel" aria-hidden="true">
+                  <div className="tech-stack-mobile-panel py-2.5" aria-hidden="true">
                     {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index, true))}
                   </div>
                 </motion.div>
