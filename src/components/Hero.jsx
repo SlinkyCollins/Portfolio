@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import pfp from "@/assets/heroImg.jpg"
 import { Typewriter } from "react-simple-typewriter"
-import { ArrowRight } from "lucide-react"
+import { ArrowDown, ArrowRight } from "lucide-react"
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -76,7 +76,9 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 whileHover={{ opacity: 0.9 }}
               >
-                View Projects <ArrowRight className="w-4 h-4" />
+                View Projects
+                <ArrowRight className="hidden sm:block w-4 h-4" />
+                <ArrowDown className="block sm:hidden w-4 h-4" />
               </motion.button>
               <motion.a
                 href="/Collins_Resume.docx"

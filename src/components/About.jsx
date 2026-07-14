@@ -73,6 +73,30 @@ export default function About() {
     ],
   };
 
+  const mobileTechStack = Object.entries(techStack).flatMap(([category, stack]) =>
+    stack.map((tech) => ({ ...tech, category }))
+  )
+
+  const renderMobileTechCard = (tech, index, isDuplicate = false) => {
+    const IconComponent = tech.icon
+
+    return (
+      <div key={`${isDuplicate ? "dup-" : ""}${tech.name}-${index}`} className="tech-stack-mobile-card group">
+        <button
+          type="button"
+          aria-label={`${tech.name} skill`}
+          className="tech-stack-mobile-button"
+        >
+          <span className="tech-stack-mobile-icon">
+            <IconComponent className="h-5 w-5" aria-hidden="true" focusable="false" />
+          </span>
+
+          <span className="tech-stack-mobile-name">{tech.name}</span>
+        </button>
+      </div>
+    )
+  }
+
 
   return (
     <section id="about" aria-label="About Me" className="py-20 px-4">
@@ -170,48 +194,70 @@ export default function About() {
               </h2>
             </motion.h4>
 
-            {Object.entries(techStack).map(([category, stack]) => (
-              <div key={category} className="mb-15">
-                <h5 className="text-lg sm:text-xl font-semibold text-orange-400 mb-8 text-center capitalize">
-                  {category === "frontend" ? "Frontend" :
-                    category === "backend" ? "Backend & Cloud" :
-                      "Dev Tools"}
-                </h5>
+            <motion.div
+              className="sm:hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <div className="tech-stack-mobile-viewport mx-auto w-full max-w-sm rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-3 shadow-2xl shadow-black/20">
+                <div className="tech-stack-mobile-track">
+                  <div className="tech-stack-mobile-panel">
+                    {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index))}
+                  </div>
 
-                <motion.div
-                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  {stack.map((tech, index) => {
-                    const IconComponent = tech.icon;
-                    return (
-                      <motion.div
-                        key={index}
-                        className="flex flex-col items-center group relative"
-                        variants={itemVariants}
-                        whileHover={{ y: -3, opacity: 0.9 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                      >
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-slate-800 rounded-lg flex items-center justify-center mb-2 group-hover:bg-orange-500 group-hover:shadow-md group-hover:shadow-orange-500/20 transition-all duration-200">
-                          <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-gray-300 group-hover:text-white transition-colors" />
-                        </div>
-                        <span className="text-xs sm:text-sm text-gray-400 text-center group-hover:text-orange-400 transition-colors">
-                          {tech.name}
-                        </span>
-
-                        {/* Tooltip for larger screens */}
-                        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden sm:block whitespace-nowrap">
-                          {tech.name}
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
+                  <div className="tech-stack-mobile-panel" aria-hidden="true">
+                    {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index, true))}
+                  </div>
+                </div>
               </div>
-            ))}
+            </motion.div>
+
+            <div className="hidden sm:block">
+              {Object.entries(techStack).map(([category, stack]) => (
+                <div key={category} className="mb-15">
+                  <h5 className="text-lg sm:text-xl font-semibold text-orange-400 mb-8 text-center capitalize">
+                    {category === "frontend" ? "Frontend" :
+                      category === "backend" ? "Backend & Cloud" :
+                        "Dev Tools"}
+                  </h5>
+
+                  <motion.div
+                    className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                  >
+                    {stack.map((tech, index) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <motion.div
+                          key={index}
+                          className="flex flex-col items-center group relative"
+                          variants={itemVariants}
+                          whileHover={{ y: -3, opacity: 0.9 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                        >
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-slate-800 rounded-lg flex items-center justify-center mb-2 group-hover:bg-orange-500 group-hover:shadow-md group-hover:shadow-orange-500/20 transition-all duration-200">
+                            <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-gray-300 group-hover:text-white transition-colors" />
+                          </div>
+                          <span className="text-xs sm:text-sm text-gray-400 text-center group-hover:text-orange-400 transition-colors">
+                            {tech.name}
+                          </span>
+
+                          {/* Tooltip for larger screens */}
+                          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden sm:block whitespace-nowrap">
+                            {tech.name}
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
