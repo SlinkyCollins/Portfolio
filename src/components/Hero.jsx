@@ -81,8 +81,8 @@ export default function Hero() {
                 <ArrowDown className="block sm:hidden w-4 h-4" />
               </motion.button>
               <motion.a
-                href="/Collins_Resume.docx"
-                download="Collins_Resume.docx"
+                href="/Collins_Resume.pdf"
+                download="Collins_Resume.pdf"
                 className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base flex items-center justify-center cursor-pointer"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
