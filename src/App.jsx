@@ -10,43 +10,25 @@ import Projects from './components/Projects'
 import LoadingScreen from "./components/LoadingScreen"
 import { Toaster } from "react-hot-toast"
 
-
-
 function App() {
-
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000) // Display loader for 2 seconds
-
-    // Prevent scrolling while loading
-    document.body.style.overflow = "hidden"
-
-    return () => {
-      clearTimeout(timer)
-      document.body.style.overflow = "unset" // Re-enable scrolling after unmount
-    }
+    const timer = setTimeout(() => setIsLoading(false), 650)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
-    <>
-      <main className="min-h-screen bg-slate-900 text-white">
-        <AnimatePresence>{isLoading && <LoadingScreen />}</AnimatePresence>
-        {!isLoading && (
-          <>
-            <Toaster/>
-            <Navbar />
-            <Hero />
-            <About />
-            <Projects />
-            <Contact />
-            <Footer />
-          </>
-        )}
-      </main>
-    </>
+    <main className="min-h-screen bg-slate-900 text-white">
+      <AnimatePresence>{isLoading && <LoadingScreen />}</AnimatePresence>
+      <Toaster />
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
+      <Contact />
+      <Footer />
+    </main>
   )
 }
 
