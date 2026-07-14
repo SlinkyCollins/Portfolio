@@ -202,7 +202,11 @@ export default function About() {
               viewport={{ once: true, margin: "-50px" }}
             >
               <div className="tech-stack-mobile-viewport mx-auto w-full max-w-sm rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-3 shadow-2xl shadow-black/20">
-                <div className="tech-stack-mobile-track">
+                <motion.div
+                  className="tech-stack-mobile-track"
+                  animate={{ y: ["0%", "-50%"] }}
+                  transition={{ duration: 26, ease: "linear", repeat: Infinity }}
+                >
                   <div className="tech-stack-mobile-panel">
                     {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index))}
                   </div>
@@ -210,7 +214,7 @@ export default function About() {
                   <div className="tech-stack-mobile-panel" aria-hidden="true">
                     {mobileTechStack.map((tech, index) => renderMobileTechCard(tech, index, true))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
