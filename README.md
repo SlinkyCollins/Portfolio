@@ -48,10 +48,12 @@ src/
 │   ├── Contact.jsx     # EmailJS form logic
 │   ├── Hero.jsx        # Main landing section
 │   ├── Navbar.jsx      # Responsive navigation with mobile drawer
-│   └── Projects.jsx    # Project showcase grid
+│   └── Projects.jsx    # Project showcase carousel
 ├── lib/
 │   └── utils.ts        # Tailwind class merging utility (cn)
-└── App.jsx             # Main layout and routing logic
+└── App.jsx             # Main application layout
+public/
+└── images/projects/    # Project showcase images
 
 ```
 
@@ -97,14 +99,15 @@ The app will launch at `http://localhost:5173`.
 
 ### 🎨 Featured Projects
 
-The portfolio dynamically renders these projects from the `Projects.jsx` component:
+The portfolio dynamically renders these four projects from the `Projects.jsx` component. The
+first project is marked as the latest build in the UI.
 
-| Project | Tech Stack | Scope | Description |
+| Project | Tech Stack | Scope | Links and Description |
 | --- | --- | --- | --- |
-| **Vaultly (Digital Banking System)** | Vue 3, Pinia, Laravel 12, MySQL, Sanctum, Cloudinary, Vite | 13 pages, 21 API endpoints, 4 cloud services | Production-style digital banking system using Laravel transactions, row-level locking, and deadlock retries to protect deposits, transfers, and withdrawals. |
-| **JobNet (Global Recruitment Engine)** | Angular 18, PHP 8.2, MySQL, Firebase Auth, Docker | 61 API endpoints, 31 Angular pages, 3 dashboards | Global recruitment platform with hybrid Firebase and MySQL authentication, multi-role dashboards, and salary normalization through exchange-rate data. |
-| **NairaNest (Core Banking Infrastructure)** | React, Redux Toolkit, Node.js, MongoDB, Material UI | 21 API endpoints, 14 banking features, 8 security features | Core banking simulation with MongoDB sessions for atomic balance updates, protected transfers, RBAC, rate limiting, and analytics dashboards. |
-| **Phone OS Simulator (Browser-Based Mobile OS)** | Vanilla JavaScript, Canvas API, Webcam API, LocalStorage, CSS3 | 10 applications, 5 persistent modules, 4+ browser APIs | Browser-based mobile environment that coordinates isolated apps, USSD validation, Canvas gameplay, webcam access, and persistent device-like state. |
+| **AI-Powered Customer Support (Refund System)** | Vue, Express, TypeScript, PostgreSQL, LLM API, Docker, Jest | 58 automated tests, deterministic rules, Docker containerized | [Source code](https://github.com/SlinkyCollins/worknoon-refund-engine). AI-assisted support engine that validates delivery windows, item eligibility, and refund limits in TypeScript before AI processing. |
+| **Vaultly (Digital Banking System)** | Vue 3, Pinia, Laravel 12, MySQL, Sanctum, Cloudinary, Vite | 13 pages, 21 API endpoints, 4 cloud services | [Source code](https://github.com/SlinkyCollins/vaultly-frontend) · [Live demo](https://vaultlydemo.vercel.app). Production-style banking system using transactions, row-level locking, and deadlock retries to protect financial operations. |
+| **JobNet (Global Recruitment Engine)** | Angular 18, PHP 8.2, MySQL, Firebase Auth, Docker | 61 API endpoints, 31 Angular pages, 3 dashboards | [Source code](https://github.com/SlinkyCollins/job-portal-frontend) · [Live demo](https://jobnet.vercel.app/). Recruitment platform with hybrid authentication, multi-role dashboards, and salary normalization through exchange-rate data. |
+| **NairaNest (Core Banking Infrastructure)** | React, Redux Toolkit, Node.js, MongoDB, Material UI | 21 API endpoints, 14 banking features, 8 security features | [Source code](https://github.com/SlinkyCollins/Bank-App) · [Live demo](https://nairanest.vercel.app/). Core banking simulation using MongoDB transactions, JWT authentication, RBAC, rate limiting, and analytics dashboards. |
 
 ---
 
