@@ -31,10 +31,9 @@ export default function Projects() {
       challenge:
         "Separated business-rule enforcement from the LLM layer so untrusted prompts and malicious inputs cannot directly determine refund eligibility.",
       tech: ["Vue", "Express", "TypeScript", "PostgreSQL", "LLM API", "Docker", "Jest"],
-      codeUrl: "https://github.com/SlinkyCollins",
+      codeUrl: "https://github.com/SlinkyCollins/worknoon-refund-engine",
       liveUrl: "",
-      image: "",
-      icon: Bot,
+      image: "/images/projects/refundengine.png",
       isLatest: true,
     },
     {
@@ -371,7 +370,7 @@ export default function Projects() {
                             title="Live demo unavailable or enterprise system"
                           >
                             <ExternalLink size={16} />
-                            Demo Private
+                            Demo Inactive
                           </span>
                         )}
                       </div>
