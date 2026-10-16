@@ -32,7 +32,7 @@ export default function Projects() {
         "Separated business-rule enforcement from the LLM layer so untrusted prompts and malicious inputs cannot directly determine refund eligibility.",
       tech: ["Vue", "Express", "TypeScript", "PostgreSQL", "LLM API", "Docker", "Jest"],
       codeUrl: "https://github.com/SlinkyCollins/worknoon-refund-engine",
-      liveUrl: "",
+      liveUrl: "https://worknoon-refund-ui.onrender.com",
       image: "/images/projects/refundengine.png",
       isLatest: true,
     },
