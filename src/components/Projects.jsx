@@ -102,9 +102,9 @@ export default function Projects() {
               My <span className="text-orange-500">Projects</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-              A curated selection of systems I&apos;ve built across fintech, healthcare, recruitment,
-              and interactive frontend experiences. Swipe or use the controls to move through each
-              project at a time.
+              A curated selection of systems I&apos;ve built across secure AI,
+              fintech, recruitment, and transaction-driven platforms. Swipe or use
+              the controls to move through each project at a time.
             </p>
           </div>
 
