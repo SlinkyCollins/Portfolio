@@ -33,7 +33,7 @@ export default function Projects() {
       tech: ["Vue", "Express", "TypeScript", "PostgreSQL", "LLM API", "Docker", "Jest"],
       codeUrl: "https://github.com/SlinkyCollins/worknoon-refund-engine",
       liveUrl: "https://worknoon-refund-ui.onrender.com",
-      image: "/images/projects/refundengine.png",
+      image: "/images/projects/refundengine.webp",
       isLatest: true,
     },
     {
@@ -48,7 +48,7 @@ export default function Projects() {
       tech: ["Vue 3", "Pinia", "Laravel 12", "MySQL", "Sanctum", "Cloudinary", "Vite"],
       codeUrl: "https://github.com/SlinkyCollins/vaultly-frontend",
       liveUrl: "https://vaultlydemo.vercel.app",
-      image: "/images/projects/vaultly.png",
+      image: "/images/projects/vaultly.webp",
     },
     {
       title: "JobNet (Global Recruitment Engine)",
@@ -60,7 +60,7 @@ export default function Projects() {
       tech: ["Angular 18", "PHP 8.2", "MySQL", "Firebase Auth", "Docker"],
       codeUrl: "https://github.com/SlinkyCollins/job-portal-frontend",
       liveUrl: "https://jobnet.vercel.app/",
-      image: "/images/projects/jobnet.png",
+      image: "/images/projects/jobnet.webp",
     },
     {
       title: "NairaNest (Core Banking Infrastructure)",
@@ -72,7 +72,7 @@ export default function Projects() {
       tech: ["React", "Redux Toolkit", "Node.js", "MongoDB", "Material UI"],
       codeUrl: "https://github.com/SlinkyCollins/Bank-App",
       liveUrl: "https://nairanest.vercel.app/",
-      image: "/images/projects/bank.png",
+      image: "/images/projects/bank.webp",
     }
   ]
 
