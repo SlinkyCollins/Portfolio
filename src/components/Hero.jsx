@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"
-import pfp from "@/assets/heroImg.webp"
 import { Typewriter } from "react-simple-typewriter"
 import { ArrowDown, ArrowRight } from "lucide-react"
+
+const pfp = "/images/heroImg.webp"
 
 export default function Hero() {
   const scrollToProjects = () => {
