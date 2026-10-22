@@ -176,6 +176,10 @@ export default function Projects() {
                         <img
                           src={project.image}
                           alt={`${project.title} screenshot`}
+                          width={640}
+                          height={360}
+                          loading="lazy"
+                          decoding="async"
                           onError={() => handleImageError(project.title)}
                           className="w-full h-44 object-cover object-top group-hover:scale-105 sm:h-56 lg:h-72 transition-transform duration-500 grayscale group-hover:grayscale-0"
                         />

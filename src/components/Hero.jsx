@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import pfp from "@/assets/heroImg.jpg"
+import pfp from "@/assets/heroImg.webp"
 import { Typewriter } from "react-simple-typewriter"
 import { ArrowDown, ArrowRight } from "lucide-react"
 
@@ -23,7 +23,7 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 min-h-[4.5rem] sm:min-h-[5.5rem] lg:min-h-[4.5rem]"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
@@ -108,14 +108,16 @@ export default function Hero() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <div className="w-full h-full rounded-full bg-slate-900 p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden">
+                  <div className="w-full h-full rounded-full overflow-hidden aspect-square">
                     <img
                       src={pfp}
                       alt="Collins Afolabi - Full Stack Software Engineer"
                       width={400}
                       height={400}
-                      className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
-                      priority
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 aspect-square" 
                     />
                   </div>
                 </div>

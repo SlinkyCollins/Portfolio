@@ -2,6 +2,7 @@ const VITAL_THRESHOLDS = {
   ttfb: { good: 800, needsImprovement: 1800, unit: 'ms' },
   lcp: { good: 2500, needsImprovement: 4000, unit: 'ms' },
   inp: { good: 200, needsImprovement: 500, unit: 'ms' },
+  cls: { good: 0.1, needsImprovement: 0.25, unit: '' },
 }
 
 const STATUS_STYLES = {
@@ -26,8 +27,10 @@ function logVital(name, value, threshold) {
       ? 'NEEDS IMPROVEMENT'
       : 'POOR'
 
+  const formattedValue = threshold.unit ? `${value.toFixed(0)} ${threshold.unit}` : value.toFixed(3)
+
   console.log(
-    `%c${name}%c ${value.toFixed(0)} ${threshold.unit}  %c${label}`,
+    `%c${name}%c ${formattedValue}  %c${label}`,
     'color: #2563eb; font-weight: 700;',
     'color: inherit; font-weight: 600;',
     STATUS_STYLES[status],
@@ -39,9 +42,9 @@ function supportsEntryType(entryType) {
 }
 
 /**
- * Starts native PerformanceObservers for the page's Core Web Vitals.
+ * Starts native PerformanceObservers for the page's Core Web Vitals (TTFB, LCP, INP, CLS).
  *
- * LCP and INP are reported when the document is hidden, which gives both
+ * LCP, INP, and CLS are reported when the document is hidden, which gives
  * metrics their final value for the page visit.
  */
 export function initPerfDiagnostics() {
@@ -49,9 +52,13 @@ export function initPerfDiagnostics() {
 
   initialized = true
   let lcpValue
+  let clsValue = 0
+  let sessionValue = 0
+  let sessionEntries = []
   const interactions = new Map()
   let hasLoggedLcp = false
   let hasLoggedInp = false
+  let hasLoggedCls = false
 
   if (supportsEntryType('navigation')) {
     const navigationObserver = new PerformanceObserver((list) => {
@@ -80,6 +87,46 @@ export function initPerfDiagnostics() {
         if (lcpValue !== undefined && !hasLoggedLcp) {
           hasLoggedLcp = true
           logVital('LCP', lcpValue, VITAL_THRESHOLDS.lcp)
+        }
+      }
+    }, { once: true })
+  }
+
+  if (supportsEntryType('layout-shift')) {
+    const clsObserver = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        // Only count shifts without recent user input
+        if (!entry.hadRecentInput) {
+          const firstSessionEntry = sessionEntries[0]
+          const lastSessionEntry = sessionEntries[sessionEntries.length - 1]
+
+          if (
+            sessionValue &&
+            entry.startTime - lastSessionEntry.startTime < 1000 &&
+            entry.startTime - firstSessionEntry.startTime < 5000
+          ) {
+            sessionValue += entry.value
+            sessionEntries.push(entry)
+          } else {
+            sessionValue = entry.value
+            sessionEntries = [entry]
+          }
+
+          if (sessionValue > clsValue) {
+            clsValue = sessionValue
+          }
+        }
+      }
+    })
+
+    clsObserver.observe({ type: 'layout-shift', buffered: true })
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        clsObserver.disconnect()
+        if (!hasLoggedCls) {
+          hasLoggedCls = true
+          logVital('CLS', clsValue, VITAL_THRESHOLDS.cls)
         }
       }
     }, { once: true })
